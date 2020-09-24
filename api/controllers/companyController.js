@@ -44,7 +44,7 @@ exports.edit_company = (req,res) => {
 }
 
 exports.list_all_companies = (req, res) => {
-    Company.findAll({ attributes: ['name', 'shortdesc', 'description', 'email', 'date', 'status', 'logo'] })
+    Company.findAll({ attributes: ['id', 'name', 'shortdesc', 'description', 'email', 'date', 'status', 'logo'] })
         .then( data => {
             res.status(200).send(data);
         })
