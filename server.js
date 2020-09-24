@@ -1,13 +1,13 @@
-const companieRoutes = require('./api/routes/companieRoutes');
+const companyRoutes = require('./api/routes/companyRoutes');
 const ownerRoutes = require('./api/routes/ownerRoutes');
 
 const express = require('express'),
     app = express(),
     cors = require('cors'),
     bodyParser = require('body-parser'),
-    CompanieModel = require('./api/models/companieModel'),
+    CompanyModel = require('./api/models/companyModel'),
     FavoriteModel = require('./api/models/favoriteModel'),
-    CompanieRoutes = require('./api/routes/companieRoutes'),
+    CompanyRoutes = require('./api/routes/companyRoutes'),
     OwnerRoutes = require('./api/routes/ownerRoutes'),
     FavoriteRoutes = require('./api/routes/favoriteRoutes'),
     sequelize = require('./db');
@@ -17,7 +17,7 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-CompanieRoutes(app);
+CompanyRoutes(app);
 OwnerRoutes(app);
 FavoriteRoutes(app);
 

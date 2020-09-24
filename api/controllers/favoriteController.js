@@ -2,7 +2,7 @@ const fetch = require("node-fetch");
 const sequelize = require('../../db');
 const { Op } = require("sequelize");
 const Favorite = sequelize.models.Favorite;
-const Companie = sequelize.models.Companie;
+const Company = sequelize.models.Company;
 const apiToken = process.env.GOREST_TOKEN;
 
 const handleError = (req,res,error) => {
@@ -11,7 +11,7 @@ const handleError = (req,res,error) => {
     } else if (error.name === "SequelizeValidationError") {
         res.status(400).send(error);
     } else if (error.name === "SequelizeForeignKeyConstraintError") {
-        res.status(404).send({ message: "Companie not found"});
+        res.status(404).send({ message: "Company not found"});
     } else {
         res.status(500).send(error);
     }
@@ -40,11 +40,11 @@ const isValidOwner = (id) => {
     });
 }
 
-const isValidCompanie = (id) => {
+const isValidCompany = (id) => {
     return new Promise((resolve, reject) => {
-        Companie.findOne({ where: { id: id } })
-            .then( companie => {
-                if (companie !== null || companie !== undefined) {
+        Company.findOne({ where: { id: id } })
+            .then( company => {
+                if (company !== null || company !== undefined) {
                     resolve();
                 } else {
                     reject();
@@ -58,12 +58,12 @@ const isValidCompanie = (id) => {
 
 
 
-exports.set_favorite_companie = (req, res) => {
+exports.set_favorite_company = (req, res) => {
     const favorite = req.body;
 
     isValidOwner(favorite.id_owner)
         .then(() => {
-            isValidCompanie(favorite.id_companie)
+            isValidCompany(favorite.id_company)
                 .then(() => {
                     Favorite.create(favorite)
                         .then( data => {

@@ -1,6 +1,6 @@
 const sequelize = require('../../db');
 const { Op } = require("sequelize");
-const Companie = sequelize.models.Companie;
+const Company = sequelize.models.Company;
 
 const handleError = (req,res,error) => {
     if (error.name === "SequelizeUniqueConstraintError"){
@@ -17,9 +17,9 @@ const checkEditError = (body) => {
     return (body.cif !== undefined || body.date !== undefined || body.email !== undefined || body.id !== undefined );
 }
 
-exports.create_companie = (req, res) => {
-    const companie = req.body
-    Companie.create(companie)
+exports.create_company = (req, res) => {
+    const company = req.body
+    Company.create(company)
         .then( data => {
             res.status(201).send(data);
         })
@@ -28,14 +28,14 @@ exports.create_companie = (req, res) => {
         });
 }
 
-exports.edit_companie = (req,res) => {
-    const companie = req.body;
-    if (checkEditError(companie)) {
-        res.status(400).send("There are attributes in the request that cannot be changed");
+exports.edit_company = (req,res) => {
+    const company = req.body;
+    if (checkEditError(company)) {
+        res.status(400).send({ message: "There are attributes in the request that cannot be changed"});
     } else {
-        Companie.update(companie, {where: { id: req.params.id }})
+        Company.update(company, {where: { id: req.params.id }})
             .then( data => {
-                res.status(200).send({'message': 'Companie modified successfully'});
+                res.status(200).send({ message: 'Company modified successfully'});
             })
             .catch( error => {
                 handleError(req, res, error);
@@ -44,7 +44,7 @@ exports.edit_companie = (req,res) => {
 }
 
 exports.list_all_companies = (req, res) => {
-    Companie.findAll({ attributes: ['name', 'shortdesc', 'description', 'email', 'date', 'status', 'logo'] })
+    Company.findAll({ attributes: ['name', 'shortdesc', 'description', 'email', 'date', 'status', 'logo'] })
         .then( data => {
             res.status(200).send(data);
         })
@@ -54,7 +54,7 @@ exports.list_all_companies = (req, res) => {
 }
 
 exports.search_companies = (req, res) => {
-    Companie.findAll({
+    Company.findAll({
         where: {
           description: {
             [Op.like]: `%${req.query.keyword}%`

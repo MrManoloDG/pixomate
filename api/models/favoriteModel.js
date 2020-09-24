@@ -1,7 +1,7 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = require('../../db');
 
-const Companie = sequelize.models.Companie;
+const Company = sequelize.models.Company;
 
 const Favorite = sequelize.define('Favorite', {
     id: {
@@ -17,7 +17,7 @@ const Favorite = sequelize.define('Favorite', {
     tableName: 'favorites'
 });
 
-Favorite.belongsTo(Companie, {foreignKey: 'id_companie'});
+Favorite.belongsTo(Company, {foreignKey: 'id_company'});
 sequelize.sync();
 
 module.exports = Favorite;
