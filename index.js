@@ -1,9 +1,9 @@
+require('dotenv').config()
+
 const app = require('./server'),
     sequelize = require('./db'),
     port = process.env.PORT || 8080,
     http = require('http');
-
-
 
 sequelize.authenticate().then(()=> {
     console.log('Connection has been established successfully.');
