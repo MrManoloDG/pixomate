@@ -1,0 +1,217 @@
+{
+	"info": {
+		"_postman_id": "01851df5-75f3-4a63-8c06-1346a2b85ffe",
+		"name": "pixomatemdg",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST localhost:8080/companies",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"MateCom\",\r\n    \"shortdesc\": \"Lorem ipsum dolor awdawdawawdawdawdawdawdawdawdawdawdaw\",\r\n    \"description\": \"Lorem ipsum dolor sit amet consectetur adipiscing elit nunc cras integer dapibus, porta nascetur ante accumsan orci facilisi senectus class vehicula donec vivamus quisque, aliquet himenaeos a erat rutrum sociis maecenas curae risus non. Sem nibh potenti faucibus penatibus cum turpis suspendisse, nisi in parturient cubilia bibendum vel auctor convallis, aenean velit malesuada taciti eget mus. Tortor libero tellus mauris eros ad ligula fermentum vulputate fames, magna est habitasse ut hendrerit enim posuere venenatis purus, at iaculis pretium viverra morbi id pulvinar habitant. Interdum etiam urna ullamcorper aptent porttitor per suscipit quis, dui ultricies quam tempus congue praesent fusce sollicitudin, justo litora augue platea pharetra inceptos molestie. Leo euismod commodo aliquam fringilla massa et sociosqu neque sagittis montes, volutpat imperdiet conubia luctus egestas sapien laoreet diam eleifend nisl ac, netus facilisis placerat metus nec vitae lacinia rhoncus ultrices. Ridiculus primis scelerisque nullam duis eu dictumst arcu curabitur, sed odio lobortis nulla tincidunt phasellus condimentum semper dignissim, mollis mi dictum hac consequat nam tristique. Cursus tempor natoque pellentesque felis magnis lacus sodales lectus nostra, torquent ornare blandit feugiat dis proin elementum mattis gravida, vestibulum varius aliquam sodales condimentum feugiat cras duis. Turpis taciti erat egestas natoque venenatis senectus vestibulum litora pellentesque montes nunc nostra, hendrerit quam porta semper viverra aptent malesuada ad luctus interdum convallis cursus, primis blandit nec nisl felis dis pretium lectus torquent mollis integer. A suscipit placerat ornare elementum potenti mattis nullam enim metus, tincidunt sapien eu ullamcorper ac vehicula class iaculis commodo sollicitudin, at inceptos pulvinar justo et dictum fames augue. Mauris nascetur morbi nibh bibendum aenean, himenaeos volutpat leo in netus, id dignissim massa eros. Eleifend vulputate hac orci sociis conubia tempus auctor habitant vivamus etiam, fringilla mi risus phasellus nisi libero gravida congue non per praesent, urna posuere tempor laoreet parturient rutrum porttitor accumsan purus.\",\r\n    \"email\": \"MateCom@gmail.com\",\r\n    \"cif\": \"A72386316\",\r\n    \"logo\": \"https://d500.epimg.net/cincodias/imagenes/2015/05/08/pyme/1431098283_691735_1431098420_noticia_normal.jpg\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/companies",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"companies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT localhost:8080/companies/1",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"description\": \"Empresa dedicada a gatos sin hogar\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/companies/12",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"companies",
+						"12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET localhost:8080/companies [LIST]",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/companies",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"companies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET localhost:8080/companies/search [SEARCH]",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/companies/search?keyword=gatos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"companies",
+						"search"
+					],
+					"query": [
+						{
+							"key": "keyword",
+							"value": "gatos"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET localhost:8080/owners",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/owners?page=2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"owners"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST localhost:8080/favorites ",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id_owner\": 2,\r\n    \"id_company\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/favorites",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"favorites"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET localhost:8080/favorites/owner/1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/favorites/owner/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"favorites",
+						"owner",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE localhost:8080/favorites/:id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/favorites/4",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"favorites",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET localhost:8080/owners/2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/owners/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"owners",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
